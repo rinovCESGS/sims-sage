@@ -110,3 +110,11 @@ html{scrollbar-gutter:stable}
 .lempty{text-align:center;padding:48px 20px;color:var(--muted)}
 .lempty b{display:block;font-size:15px;color:var(--ink);margin-bottom:4px}
 @media(max-width:820px){.lintaspage{padding:16px 13px 50px}.lintashead .lh-tx h1{font-size:19px}.li-top{flex-direction:column;gap:6px}.lbadge{align-self:flex-start}}
+/* Gaya tabel Ant (PC) */
+.tbl-wrap thead th{background:#fafafa;font-weight:600;color:#374151;border-bottom:1px solid #e8e8e8;padding:11px 14px}
+.tbl-wrap thead th:first-child{background:#fafafa}
+.tbl-wrap tbody td{border-bottom:1px solid #f0f0f0}
+.tbl-wrap tbody td:first-child{background:#fff}
+.tbl-wrap tbody tr:last-child td{border-bottom:none}
+.tbl-wrap tbody tr:hover td{background:#fafafa}
+.tbl-wrap tbody tr:hover td:first-child{background:#fafafa}
