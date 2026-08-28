@@ -87,3 +87,6 @@ html{scrollbar-gutter:stable}
 .hubcard .hc-badge{position:absolute;top:9px;right:12px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--red);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center}
 @media(min-width:821px){.hubcalrow{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;align-items:start;margin-bottom:14px}.hubcalrow>.card:first-child{margin-bottom:0}.hub-hero{padding:28px 32px}.hub-avatar{width:54px;height:54px;font-size:20px;margin-bottom:14px}.sapa{font-size:32px}.hub-hero .hh>.btn{position:absolute;right:0;top:50%;transform:translateY(-50%);background:#fff;color:var(--em700);border:1px solid #fff;font-weight:600}.hub-hero .hh>.btn:hover{background:#eef7f9}.cald.hub{min-height:56px;padding-top:8px}.cald.hub .cnt{font-size:10px}}
 @media(min-width:821px){:root{--bg:#FAFAF7}}
+
+.msg{max-width:82%;align-self:flex-start}
+.msg.mine{align-self:flex-end}
