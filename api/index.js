@@ -293,7 +293,7 @@ export async function handleRequest(req) {
 
     if (fn === 'ping') return jawab({ ok: true, data: { ok: true } });
 
-    const sesi = bukaTandaTangan(bacaKuki(req.cookie, KUKI_SESI), K.rahasia, K.sesiJam);
+    const sesi = bukaTandaTangan(bacaKuki(req.cookie, KUKI_SESI), K.rahasia, K.sesiJam) || bukaTandaTangan(String(masuk.stok || ''), K.rahasia, K.sesiJam);
 
     /* ── masuk ── */
     if (fn === 'apiMasuk') {
@@ -323,11 +323,11 @@ export async function handleRequest(req) {
       delete bersih.token;
 
       const umur = K.sesiJam * 3600;
-      const kukiSesi = kepalaKuki(KUKI_SESI,
-        tandaTangani({ t: token, m: surel, ts: Math.floor(Date.now() / 1000) }, K.rahasia),
-        umur, aman, true);
+      const nilaiSesi = tandaTangani({ t: token, m: surel, ts: Math.floor(Date.now() / 1000) }, K.rahasia);
+      const kukiSesi = kepalaKuki(KUKI_SESI, nilaiSesi, umur, aman, true);
       const kukiAda = kepalaKuki(KUKI_ADA, '1', umur, aman, false);
 
+      bersih.stok = nilaiSesi;
       return jawab({ ok: true, data: bersih }, { 'Set-Cookie': [kukiSesi, kukiAda] });
     }
 
