@@ -14,7 +14,7 @@
    simpanan lama dibuang saat pengaktifan. Berkas di /assets/ tidak perlu
    didaftarkan karena namanya sudah membawa sidik isi dan disimpan lewat jalur
    biasa di bawah. */
-const CACHE = 'sims-v32';
+const CACHE = 'sims-v36';
 const KERANGKA = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', ev => {
