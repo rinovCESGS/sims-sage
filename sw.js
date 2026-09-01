@@ -14,7 +14,7 @@
    simpanan lama dibuang saat pengaktifan. Berkas di /assets/ tidak perlu
    didaftarkan karena namanya sudah membawa sidik isi dan disimpan lewat jalur
    biasa di bawah. */
-const CACHE = 'sims-v43';
+const CACHE = 'sims-v41';
 const KERANGKA = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', ev => {
@@ -65,6 +65,11 @@ self.addEventListener('fetch', ev => {
   const u = new URL(ev.request.url);
   if (ev.request.method !== 'GET') return;
   if (u.origin !== self.location.origin) return;
+
+  /* Jawaban /api tidak pernah disimpan. Isinya berbeda per akun dan berubah
+     tiap penulisan, jadi menyimpannya berarti menyajikan data basi atau,
+     lebih buruk, data milik akun lain. */
+  if (u.pathname === '/api' || u.pathname.startsWith('/api/')) return;
 
   const kerangka = ev.request.mode === 'navigate' ||
                    u.pathname === '/' ||
